@@ -10,6 +10,22 @@ router.get("/", async (req, res) => {
     }
 });
 
+router.get("/race", async (req, res) => {
+    const { name } = req.query;
+    if(name !== ""){
+        try {
+            const dogFromAPI = await controller.getDogByNameFromAPI(name);
+            if(dogFromAPI) res.status(200).json(dogFromAPI);
+            else{
+                const dogFromDB = await controller.getDogByName(name);
+                res.status(200).json(dogFromDB);
+            }
+        } catch (error) {
+            res.status(400).json({ error: error.message });
+        }
+    }   
+});
+
 router.get("/:id", async (req, res) => {
     const { id } = req.params;
     if(!id) res.status(400).json({ error: "No id was provided" });   
@@ -20,13 +36,5 @@ router.get("/:id", async (req, res) => {
     }
 });
 
-router.get("/?name", async (req, res) => {
-    const { name } = req.query;   
-    try {
-        res.status(200).json(await controller.getDogByName(name));
-    } catch (error) {
-        res.status(error.status).json({ error: error.message });
-    }
-});
 
 module.exports = router;

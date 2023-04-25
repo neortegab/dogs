@@ -13,7 +13,7 @@ const getDogByNameFromAPI = async (name) => {
             key: KEY,
             value: KEY_VALUE
         }});
-        return response.data;
+        return response.data[0];
     } catch (error) {
         throw new Error({status: 500, message: error});
     }
