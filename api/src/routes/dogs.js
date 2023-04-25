@@ -6,7 +6,7 @@ router.get("/", async (req, res) => {
     try{
         res.status(200).json(await controller.getAllDogs());
     } catch(error){
-        res.status(400).json(error);
+        res.status(400).json({ error: error.message });
     }
 });
 
@@ -17,6 +17,15 @@ router.get("/:id", async (req, res) => {
         res.status(200).json(await controller.getDogById(id));
     } catch (error) {
         res.status(400).json({ error: error.message });
+    }
+});
+
+router.get("/?name", async (req, res) => {
+    const { name } = req.query;   
+    try {
+        res.status(200).json(await controller.getDogByName(name));
+    } catch (error) {
+        res.status(error.status).json({ error: error.message });
     }
 });
 
