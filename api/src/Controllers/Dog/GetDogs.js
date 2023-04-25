@@ -2,7 +2,8 @@ const { Dog } = require("../../db");
 
 const getAllDogs = async () => {
     try{
-        return await Dog.findAll();
+        const dogs = await Dog.findAll();
+        return dogs ? dogs : { message: "There are no dogs yet" };
     } catch(error){
         throw new Error("Se ha producido el siguiente error: " + error);
     }
