@@ -19,7 +19,7 @@ const getDogByName = async (name) => {
         });
         if(dogFromAPI.data.length === 0){
             try {
-                const dog = await Dog.findOne({ where: { name: { [Op.like]: `%${name}%` } } });
+                const dog = await Dog.findOne({ where: { name: { [Op.iLike]: `%${name}%` } } });
                 if(!dog) throw new Error(`There is no dog with the name ${name}`);
                 return dog;
             } catch (error) {
