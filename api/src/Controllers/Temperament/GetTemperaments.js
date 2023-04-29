@@ -19,14 +19,16 @@ const getAllTemperaments = async () => {
     
             const allDogs = allDogsRequest.data;
     
-            for(let i = 0; i < allDogs.length && allDogs[i].temperament; i++){
-                const dogTemperaments = allDogs[i].temperament.split(',');
-                for(let i = 0; i < dogTemperaments.length; i++){
-                    Temperament.findOrCreate({
-                        where: { name: { [Op.iLike]: '%'+dogTemperaments[i].trim()+'%' } },
-                        defaults: { name: dogTemperaments[i].trim() }
-                    }).catch(error => new Error(error.message));
-                }      
+            for(let i = 0; i < allDogs.length; i++){
+                if(allDogs[i].temperament){    
+                    const dogTemperaments = allDogs[i].temperament.split(',');
+                    for(let i = 0; i < dogTemperaments.length; i++){
+                        Temperament.findOrCreate({
+                            where: { name: { [Op.iLike]: '%'+dogTemperaments[i].trim()+'%' } },
+                            defaults: { name: dogTemperaments[i].trim() }
+                        }).catch(error => new Error(error.message));
+                    }      
+                }
             }
             return Temperament.findAll().then(response => response).catch(error => new Error(error.message));
         }
