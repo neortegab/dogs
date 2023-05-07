@@ -1,5 +1,5 @@
 import React from 'react'
-import NavbarButton from './NavbarButton';
+import NavbarButton from './AuxButtons/NavbarButton';
 import home from '../images/home.svg';
 import paw from '../images/paw.svg';
 
