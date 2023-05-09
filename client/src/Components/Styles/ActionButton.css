@@ -1,0 +1,21 @@
+.action-button {
+    display: flex;
+    background-color: #F3DEBA;
+    border-radius: 30px;
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.action-name {
+    color: #675D50;
+    margin: 8px;
+    margin-left: 25px;
+}
+
+.action-image{
+    max-width: calc(100%-15px);
+    max-height: calc(100%-12px);
+    height: 35px;
+    margin-right: 25px;
+}

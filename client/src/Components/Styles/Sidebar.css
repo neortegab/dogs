@@ -20,3 +20,11 @@
     margin-bottom: 2px;
 }
 
+.sidebar-buttons-list{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    width: calc(100% - 10px);
+}
+

@@ -1,5 +1,6 @@
 import React from 'react'
 import SidebarOption from './AuxComponents/SidebarOption'
+import ActionButton from './AuxButtons/ActionButton'
 import './Styles/Sidebar.css'
 
 export default function Sidebar() {
@@ -11,10 +12,15 @@ export default function Sidebar() {
         <SidebarOption name='Weight'/> 
         <h2 className='sidebar-subtitle'>Filters</h2>
         <div>
+          <select>
+            {/* Map temperaments for the options */}
+          </select>
         </div>
         <h2 className='sidebar-subtitle'>List actions</h2>
-        <div>
-            
+        <div className='sidebar-buttons-list'>
+            <ActionButton action='Create'/>
+            <ActionButton action='Update'/>
+            <ActionButton action='Delete'/>
         </div>
     </div>
   )
