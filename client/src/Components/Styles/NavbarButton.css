@@ -1,0 +1,19 @@
+.nbbutton-container {
+    display: flex;
+    align-items: center;
+}
+
+.nbbutton-img {
+    width: 50px;
+    height: 50px;
+    margin-left: 10px;
+    padding-right: 20px;
+    border-right: #87805E 2px solid;
+}
+
+.nbbutton-text {
+    color: #675D50;
+    font-size: 25px;
+    font-weight: bold;
+    margin-left: 25px;
+}
