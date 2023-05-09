@@ -1,0 +1,10 @@
+.content-container{
+    display: grid;
+    grid-template-columns: 25% 75%;
+}
+
+.content-dogs{
+    display: grid;
+    grid-template-rows: 80% 20%;
+}
+

@@ -1,0 +1,40 @@
+.dog-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #F3DEBA;
+    border-radius: 20px;
+    padding: 4px;
+    height: 300px;
+    width: 250px;
+}
+
+.dog-text-title {
+    color: #675D50;
+    font-size: 1.1rem;
+}
+
+.dog-text-temperament-title {
+    color: #675D50;
+    font-size: 1.1rem;
+    margin:unset;
+}
+
+.dog-text-content {
+    color: #675D50;
+    font-size: 0.8rem;
+    margin: 1;
+}
+
+.dog-temperament-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.dog-img {
+    border:#675D50 1px solid;
+    border-radius: 100%;
+    height: calc(85% - 120px);
+    width: 65%;
+}

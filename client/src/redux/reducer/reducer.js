@@ -1,11 +1,10 @@
-import { GET_DOGS, ADD_DOG, REMOVE_DOG, FILTER_DOGS, CLEAR_FILTER, SORT_DOGS, ORDER_DOGS_NAME, ORDER_DOGS_WEIGHT } from '../actions/types';
+import { GET_DOGS, ADD_DOG, REMOVE_DOG, FILTER_DOGS, CLEAR_FILTER, ORDER_DOGS_NAME, ORDER_DOGS_WEIGHT } from '../actions/types';
 
 const ASCENDANT = 'ascendant';
 
 const initialState = {
     allDogs: [],
     filteredDogs: [],
-    sortedDogs: [],
 };
 
 const compareDogsStringsAscendant = (a, b, value) => {
@@ -25,7 +24,7 @@ export default function reducer(state = initialState, action) {
 
     switch (type) {
         case GET_DOGS:
-            return { ...state, allDogs: payload };
+            return { ...state, allDogs: payload, filteredDogs: payload };
         case ADD_DOG:
             return { ...state, allDogs: [...state.allDogs, payload] };
         case REMOVE_DOG:
@@ -36,14 +35,14 @@ export default function reducer(state = initialState, action) {
             return { ...state, filteredDogs: [...state.allDogs] };
         case ORDER_DOGS_NAME:
             if(payload === ASCENDANT)
-                return { ...state, sortedDogs: [...state.filteredDogs].sort((a,b) => compareDogsStringsAscendant(a,b, 'name')) };
+                return { ...state, filteredDogs: [...state.filteredDogs].sort((a,b) => compareDogsStringsAscendant(a,b, 'name')) };
             else
-                return { ...state, sortedDogs: [...state.filteredDogs].sort((a,b) => compareDogsStringsDescendant(a,b, 'name')) }  
+                return { ...state, filtereddDogs: [...state.filteredDogs].sort((a,b) => compareDogsStringsDescendant(a,b, 'name')) }  
         case ORDER_DOGS_WEIGHT:
             if(payload === ASCENDANT)
-                return { ...state, sortedDogs: [...state.filteredDogs].sort((a,b) => compareDogsStringsAscendant(a, b, 'weight')) };
+                return { ...state, filteredDogs: [...state.filteredDogs].sort((a,b) => compareDogsStringsAscendant(a, b, 'weight')) };
             else
-                return { ...state, sortedDogs: [...state.filteredDogs].sort((a,b) => compareDogsStringsDescendant(a, b, 'weight')) }
+                return { ...state, filteredDogs: [...state.filteredDogs].sort((a,b) => compareDogsStringsDescendant(a, b, 'weight')) }
         default:
             return state;
     }

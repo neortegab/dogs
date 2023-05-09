@@ -5,7 +5,8 @@
     flex-direction: column;
     flex-wrap: nowrap;
     align-items: flex-start;
-    width: calc(100% - 110px);
+    width: calc(100% - 10px);
+    height: 100%;
 }
 
 .sidebar-title {

@@ -1,15 +1,18 @@
 import React from 'react'
+import './Styles/DogCard.css'
 
 export default function DogCard(props) {
 
-    const { breed, image, temperaments } = props; 
+    const { dog } = props; 
 
   return (
-    <div>
-        <h1>{breed}</h1>
-        <img src={image} alt={breed} />
-        <h3>Temperaments: </h3>
-        <h4>{temperaments.join(', ')}</h4> 
-    </div>
+    <div className='dog-card'>
+        <h2 className='dog-text-title'>{dog?.name}</h2>
+        <img className='dog-img' src={dog?.image?.url} alt={dog?.name} />
+        <div className='dog-temperament-container'>
+          <h3 className='dog-text-temperament-title '>Temperaments:</h3>
+          <p className='dog-text-content'>{dog?.temperament}</p>
+        </div>    
+      </div>
   )
 }
