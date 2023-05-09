@@ -1,0 +1,18 @@
+.sidebar-option-container{
+    display: flex;
+    flex-direction: column;
+    width: calc(100% - 20px);
+}
+
+.sidebar-option-title {
+    color: #675D50;
+    margin-left: 15px;
+    text-align: left;
+    margin-bottom: 6px;
+}
+
+.sidebar-option {
+    border-radius: 10px;
+    padding: 3px;
+    margin-left: 10px;
+}

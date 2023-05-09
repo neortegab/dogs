@@ -1,4 +1,5 @@
 import React from 'react'
+import SidebarOption from './AuxComponents/SidebarOption'
 import './Styles/Sidebar.css'
 
 export default function Sidebar() {
@@ -6,18 +7,8 @@ export default function Sidebar() {
     <div className='sidebar-container'>
         <h1 className='sidebar-title'>Options</h1>
         <h2 className='sidebar-subtitle'>Sort</h2>
-        <div className='sidebar-option-container'>
-            <h4 className='sidebar-option-title'>Alphabetically</h4>
-            <select className='sidebar-option'>
-                <option value="ascendant">Ascending</option>
-                <option value="descendant">Descending</option>
-            </select>
-            <h4 className='sidebar-option-title'>Weight</h4>
-            <select className='sidebar-option'>
-                <option value="ascendant">Ascending</option>
-                <option value="descendant">Descending</option>
-            </select>  
-        </div>
+        <SidebarOption name='Alphabetically'/>
+        <SidebarOption name='Weight'/> 
         <h2 className='sidebar-subtitle'>Filters</h2>
         <div>
         </div>
