@@ -17,7 +17,7 @@ export default function Navbar() {
         <Link to='/temperaments'>
           <NavbarButton action={'Temperaments'} image={paw} />
         </Link>
-        { pathname === '/home' && 
+        { (pathname === '/home' || pathname === '/temperaments') && 
           <div className='navbar-searchbar'> 
             <button className='navbar-button'>Search</button>
             <input className='navbar-input' type="text" placeholder="German shepard" /> 
