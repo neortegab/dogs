@@ -2,9 +2,10 @@
     display: flex;
     margin-right: 10px;
     margin-top: 5px;
+    margin-bottom: calc(3% + 5px);
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 25px;
+    gap: calc(5% - 5px);
     align-items: center;
     justify-content: space-around;
     align-content: space-between;
