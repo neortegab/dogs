@@ -1,0 +1,18 @@
+.pagelist-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 5px;
+}
+
+.pagelist-text{
+    color: #675D50;
+    font-size: x-large;
+}
+
+.pagelist-advancer{
+    display: flex;
+    display: row;
+    gap: 5px;
+}

@@ -1,0 +1,27 @@
+.landing-container{
+    background-image: url('../../images/dog_clip.png');
+    background-color: #ABC4AA;
+    background-repeat: no-repeat;
+
+    margin-top: calc(10% - 50px);
+    margin-left: calc(15% - 10px);
+    margin-right: calc(15% - 10px);
+
+    padding: calc(20px + 10%);
+
+    border: 2px solid #ABC4AA;
+    border-radius: 30px;
+
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.landing-text{
+    color: #675D50;
+}
+
+a {
+    text-decoration: none;;
+}

@@ -1,0 +1,12 @@
+.listpoint-container{
+    display:flex;
+    flex-direction:column;
+}
+
+.listpoint-img {
+    margin-bottom: 0;
+}
+
+.listpoint-number{
+    margin-top: 0;
+}

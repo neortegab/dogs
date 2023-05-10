@@ -5,6 +5,6 @@
 
 .content-dogs{
     display: grid;
-    grid-template-rows: 80% 20%;
+    grid-template-rows: 90% 10%;
 }
 

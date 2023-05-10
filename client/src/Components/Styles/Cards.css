@@ -4,8 +4,8 @@
     margin-top: 5px;
     flex-direction: row;
     flex-wrap: wrap;
-    grid-gap: 10px;
-    gap: 5px;
-    justify-content: space-between;
-    align-items: flex-start;
+    gap: 25px;
+    align-items: center;
+    justify-content: space-around;
+    align-content: space-between;
 }
