@@ -9,6 +9,7 @@ const ORDER_DOGS_WEIGHT = 'ORDER_DOGS_WEIGHT';
 
 module.exports = {
     GET_DOGS,
+    GET_DOG,
     ADD_DOG,
     REMOVE_DOG,
     FILTER_DOGS,
