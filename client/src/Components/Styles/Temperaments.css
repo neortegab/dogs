@@ -1,0 +1,10 @@
+.temperaments-container {
+    margin-right: calc(2% + 5px);
+    margin-bottom: calc(2% + 5px);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: calc(8% + 5px);
+    align-content: space-around;
+    justify-content: center;
+}

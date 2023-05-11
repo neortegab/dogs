@@ -1,10 +1,11 @@
 import React from 'react'
 import Temperament from './Temperament'
+import './Styles/Temperaments.css'
 
 export default function Temperaments(props) {
     const { temperaments, pageNumber } = props;
   return (
-    <div>
+    <div className='temperaments-container'>
         { temperaments && 
           temperaments.slice(
             (pageNumber === 1 ? 0 : pageNumber*8), 

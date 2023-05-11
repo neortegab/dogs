@@ -1,0 +1,23 @@
+.temperament-container {
+    display: flex;
+    flex-direction: row;
+    background-color: #F3DEBA;
+    align-items: center;
+    border: 1px solid #675D50;
+    padding: 0 calc(2% + 5px);
+    border-radius: 25px;
+    width: calc(15% - 25px);
+    height: 100px;
+    justify-content: space-evenly;
+}
+
+.temperament-container h1{
+    color: #675D50;
+    font-size: large;
+}
+
+.temperament-container img{
+    width: calc(33% + 20px);
+    height: calc(50% + 10px);
+    margin: 10px;
+}
