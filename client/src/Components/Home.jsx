@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getDogs } from '../redux/actions/actions'
+import { useLocation } from 'react-router-dom'
 import Navbar from './Navbar'
 import Sidebar from './Sidebar'
 import Cards from './Cards'
@@ -13,6 +14,8 @@ export default function Home() {
 
   const dispatch = useDispatch();
 
+  const { pathname } = useLocation();
+
   useEffect(() => {
     dispatch(getDogs());
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -21,13 +24,17 @@ export default function Home() {
 
   return (
     <div>
-        <Navbar />
         <div className='content-container'>
           <div className='content-sidebar'>
-            <Sidebar />
+            {
+              !pathname.includes('/dog') && <Sidebar />
+            }
           </div>
           <div className='content-dogs'>
-            <Cards dogs={filteredDogs} pageNumber={1} />
+            { 
+              pathname === '/home' 
+              && <Cards dogs={filteredDogs} pageNumber={1} />
+            }
             <PageList />
           </div>
         </div>

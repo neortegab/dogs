@@ -1,4 +1,5 @@
 const GET_DOGS = 'GET_DOGS';
+const GET_DOG = 'GET_DOG';
 const ADD_DOG = 'ADD_DOG';
 const REMOVE_DOG = 'REMOVE_DOG';
 const FILTER_DOGS = 'FILTER_DOGS';

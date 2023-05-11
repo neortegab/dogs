@@ -1,10 +1,13 @@
-import { GET_DOGS, ADD_DOG, REMOVE_DOG, FILTER_DOGS, CLEAR_FILTER, ORDER_DOGS_NAME, ORDER_DOGS_WEIGHT } from '../actions/types';
+import { GET_DOGS, GET_DOG, ADD_DOG, REMOVE_DOG, FILTER_DOGS, CLEAR_FILTER, ORDER_DOGS_NAME, ORDER_DOGS_WEIGHT } from '../actions/types';
 
 const ASCENDANT = 'ascendant';
 
 const initialState = {
     allDogs: [],
+    detailDog: {},
     filteredDogs: [],
+    pageNumberDogs: 1,
+    pageNumberTemperaments: 1
 };
 
 const compareDogsStringsAscendant = (a, b, value) => {
@@ -25,6 +28,8 @@ export default function reducer(state = initialState, action) {
     switch (type) {
         case GET_DOGS:
             return { ...state, allDogs: payload, filteredDogs: payload };
+        case GET_DOG:
+            return { ...state, detailDog: payload };
         case ADD_DOG:
             return { ...state, allDogs: [...state.allDogs, payload] };
         case REMOVE_DOG:
