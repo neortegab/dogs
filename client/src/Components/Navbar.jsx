@@ -20,7 +20,7 @@ export default function Navbar() {
   }
 
   const handleSearch = () => {
-    dispatch(getDogByName(name))
+    name ? dispatch(getDogByName(name)) : window.alert('Please enter a name');
   }  
 
   return (
