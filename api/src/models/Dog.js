@@ -25,23 +25,14 @@ module.exports = (sequelize) => {
     height: {
       type: DataTypes.STRING,
       allowNull: false,
-      validate: {
-        isAlphanumeric: true
-      }
     },
     weight: {
       type: DataTypes.STRING,
       allowNull: false,
-      validate: {
-        isAlphanumeric: true
-      }
     },
     lifeSpan: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      validate: {
-        isNumeric: true
-      }
     }
   });
 };
