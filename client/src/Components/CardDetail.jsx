@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
+import ActionButton from './AuxButtons/ActionButton'
 import { useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import axios from 'axios';
 import './Styles/CardDetail.css'
 
@@ -46,6 +47,9 @@ export default function CardDetail() {
           </div>
         </div> 
       }
+      <Link to='/home'>
+        <ActionButton action='Back' />
+      </Link>
     </div>
   )
 }
