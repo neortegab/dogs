@@ -1,4 +1,5 @@
-import { GET_DOGS, 
+import { GET_DOGS,
+    GET_DOG_BY_NAME, 
     ADD_DOG, 
     REMOVE_DOG, 
     FILTER_DOGS, 
@@ -24,6 +25,18 @@ export const getDogs = () => async dispatch => {
             type: GET_DOGS,
             payload: error
         })
+    }
+}
+
+export const getDogByName = (name) => async dispatch => {
+    try {
+        const { data } = await axios.get(`http://localhost:3001/dogs?name=${name}`);
+        return dispatch({
+            type: GET_DOG_BY_NAME,
+            payload: data
+        })
+    } catch (error) {
+        console.log(error);
     }
 }
 

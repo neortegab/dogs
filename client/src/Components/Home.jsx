@@ -17,7 +17,7 @@ export default function Home() {
   const { pathname } = useLocation();
 
   useEffect(() => {}, 
-  [pageNumberDogs, pageNumberTemperaments]);
+  [pageNumberDogs, pageNumberTemperaments, filteredDogs]);
 
 
   return (
@@ -30,7 +30,7 @@ export default function Home() {
           </div>
           <div className='content-dogs'>
             { 
-              (pathname === '/home' && 
+              ((pathname === '/home' && filteredDogs) && 
               <Cards dogs={filteredDogs} 
               pageNumber={pageNumberDogs}/>)
               || (pathname === '/temperaments' 

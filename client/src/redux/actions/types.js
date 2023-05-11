@@ -1,4 +1,5 @@
 const GET_DOGS = 'GET_DOGS';
+const GET_DOG_BY_NAME = 'GET_DOG_BY_NAME';
 const ADD_DOG = 'ADD_DOG';
 const REMOVE_DOG = 'REMOVE_DOG';
 const FILTER_DOGS = 'FILTER_DOGS';
@@ -12,6 +13,7 @@ const ORDER_TEMPERAMENTS = 'ORDER_TEMPERAMENTS';
 
 module.exports = {
     GET_DOGS,
+    GET_DOG_BY_NAME,
     ADD_DOG,
     REMOVE_DOG,
     FILTER_DOGS,

@@ -20,6 +20,11 @@
     padding: 7px;
 }
 
+.navbar-button:hover {
+    background-color: #F3DEBA;
+    cursor: pointer;
+}
+
 .navbar-input {
     border-radius: 10px;
     border: black 1px solid;
