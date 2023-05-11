@@ -1,4 +1,7 @@
 import './App.css';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux'
+import { getDogs, getTemperaments } from './redux/actions/actions'
 import { Switch,  Route, useLocation } from 'react-router-dom';
 import Landing from './Components/Landing';
 import Home from './Components/Home';
@@ -7,7 +10,15 @@ import Navbar  from './Components/Navbar';
 
 function App() {
 
+  const dispatch = useDispatch();
+
   const { pathname } = useLocation();
+
+  useEffect(() => {
+    dispatch(getDogs());
+    dispatch(getTemperaments());
+  })
+
 
   return (
     <div className="App">

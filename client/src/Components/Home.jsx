@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { getDogs } from '../redux/actions/actions'
+import { useSelector } from 'react-redux'
 import { useLocation } from 'react-router-dom'
 import Sidebar from './Sidebar'
 import Cards from './Cards'
@@ -15,14 +14,10 @@ export default function Home() {
     temperaments,
     pageNumberTemperaments } = useSelector(state => state);
 
-  const dispatch = useDispatch();
-
   const { pathname } = useLocation();
 
-  useEffect(() => {
-    dispatch(getDogs());
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [pageNumberDogs, pageNumberTemperaments]);
+  useEffect(() => {}, 
+  [pageNumberDogs, pageNumberTemperaments]);
 
 
   return (
