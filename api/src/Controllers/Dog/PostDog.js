@@ -7,7 +7,7 @@ const postDog = async (dog) => {
   try {
   temperamentsMentioned.forEach(async (temperament) => {
       const temperamentInDB = await Temperament.findOrCreate({
-        where: { name: { [Op.iLike]: '%'+temperament+'%' } },
+        where: { name: { [Op.iLike]: '%'+temperament.trim()+'%' } },
         defaults: { name: temperament }
       });
       temperamentsForDog.push(temperamentInDB[0]);

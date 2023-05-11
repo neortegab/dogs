@@ -5,6 +5,7 @@ const ASCENDANT = 'ascendant';
 const initialState = {
     allDogs: [],
     filteredDogs: [],
+    temperaments: [],
     pageNumberDogs: 1,
     pageNumberTemperaments: 1
 };

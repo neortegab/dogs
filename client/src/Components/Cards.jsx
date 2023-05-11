@@ -8,7 +8,15 @@ export default function Cards(props) {
 
   return (
     <div className='cards-container'>
-        {dogs && dogs.slice(pageNumber === 1 ? 0 : pageNumber*8, pageNumber === 1 ? 8 : (pageNumber+1)*8).map(dog => <DogCard key={dog.id} dog={dog} />)}
+        { dogs && 
+          dogs.slice(
+            (pageNumber === 1 ? 0 : pageNumber*8), 
+            (pageNumber === 1 ? 8 : (pageNumber+1)*8)
+          ).map(dog => 
+          <DogCard key={dog.id} 
+          dog={dog} 
+          />)
+        }
     </div>
   )
 }

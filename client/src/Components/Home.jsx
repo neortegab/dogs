@@ -5,11 +5,15 @@ import { useLocation } from 'react-router-dom'
 import Sidebar from './Sidebar'
 import Cards from './Cards'
 import PageList from './PageList'
+import Temperaments from './Temperaments'
 import './Styles/Home.css'
 
 export default function Home() {
 
-  const { filteredDogs } = useSelector(state => state);
+  const { filteredDogs, 
+    pageNumberDogs, 
+    temperaments,
+    pageNumberTemperaments } = useSelector(state => state);
 
   const dispatch = useDispatch();
 
@@ -31,8 +35,12 @@ export default function Home() {
           </div>
           <div className='content-dogs'>
             { 
-              pathname === '/home' 
-              && <Cards dogs={filteredDogs} pageNumber={1} />
+              (pathname === '/home' && 
+              <Cards dogs={filteredDogs} 
+              pageNumber={pageNumberDogs}/>)
+              || (pathname === '/temperaments' 
+              && <Temperaments temperaments={temperaments} 
+              pageNumber={pageNumberTemperaments}/>) 
             }
             <PageList />
           </div>
