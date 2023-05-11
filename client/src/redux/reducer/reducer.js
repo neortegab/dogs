@@ -53,7 +53,7 @@ export default function reducer(state = initialState, action) {
         case GET_DOGS:
             return { ...state, allDogs: payload, filteredDogs: payload };
         case GET_DOG_BY_NAME:
-            return { ...state, filteredDogs: state.filteredDogs.filter(dog => dog.name === payload.name) };
+            return { ...state, filteredDogs: [...state.allDogs].filter(dog => dog.name === payload.name) };
         case ADD_DOG:
             return { ...state, allDogs: [...state.allDogs, payload] };
         case REMOVE_DOG:
