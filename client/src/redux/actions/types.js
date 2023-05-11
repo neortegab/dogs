@@ -1,5 +1,4 @@
 const GET_DOGS = 'GET_DOGS';
-const GET_DOG = 'GET_DOG';
 const ADD_DOG = 'ADD_DOG';
 const REMOVE_DOG = 'REMOVE_DOG';
 const FILTER_DOGS = 'FILTER_DOGS';
@@ -9,7 +8,6 @@ const ORDER_DOGS_WEIGHT = 'ORDER_DOGS_WEIGHT';
 
 module.exports = {
     GET_DOGS,
-    GET_DOG,
     ADD_DOG,
     REMOVE_DOG,
     FILTER_DOGS,

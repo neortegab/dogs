@@ -1,0 +1,41 @@
+.detail-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.detail-dog-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: calc(90% - 25px);
+    width: auto;
+    background-color: #F3DEBA;
+    margin: 1% 25%;
+    padding: calc(1% + 2px);
+    border-radius: 25px;
+}
+
+.detail-dog-container h1, h2, h3, p{
+    color: #675D50;
+}
+
+.detail-dog-id{
+    color: #675D50;
+    align-self: flex-start;
+    margin: 2px 0px 0px 15px;
+    font-size: small;
+}
+
+.detail-text-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.detail-img{
+    height: calc(85% + 30px);
+    width: calc(85% + 30px);
+    border: 1px solid #675D50;
+    border-radius: 20px;
+    margin-left: calc(1% + 6px);
+}

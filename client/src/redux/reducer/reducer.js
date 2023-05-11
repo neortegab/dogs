@@ -4,7 +4,6 @@ const ASCENDANT = 'ascendant';
 
 const initialState = {
     allDogs: [],
-    detailDog: {},
     filteredDogs: [],
     pageNumberDogs: 1,
     pageNumberTemperaments: 1
@@ -28,8 +27,6 @@ export default function reducer(state = initialState, action) {
     switch (type) {
         case GET_DOGS:
             return { ...state, allDogs: payload, filteredDogs: payload };
-        case GET_DOG:
-            return { ...state, detailDog: payload };
         case ADD_DOG:
             return { ...state, allDogs: [...state.allDogs, payload] };
         case REMOVE_DOG:

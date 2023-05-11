@@ -1,14 +1,17 @@
 import './App.css';
-import { Switch,  Route } from 'react-router-dom';
+import { Switch,  Route, useLocation } from 'react-router-dom';
 import Landing from './Components/Landing';
 import Home from './Components/Home';
 import CardDetail from './Components/CardDetail';
 import Navbar  from './Components/Navbar';
 
 function App() {
+
+  const { pathname } = useLocation();
+
   return (
     <div className="App">
-      <Navbar />
+      { (pathname !== '/') && <Navbar />}
       <Switch>
         <Route exact path="/">
           <Landing />

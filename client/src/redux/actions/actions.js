@@ -1,4 +1,4 @@
-import { GET_DOGS, GET_DOG, ADD_DOG, REMOVE_DOG, FILTER_DOGS, CLEAR_FILTER, ORDER_DOGS_NAME, ORDER_DOGS_WEIGHT } from './types'
+import { GET_DOGS, ADD_DOG, REMOVE_DOG, FILTER_DOGS, CLEAR_FILTER, ORDER_DOGS_NAME, ORDER_DOGS_WEIGHT } from './types'
 
 import axios from 'axios';
 
@@ -12,21 +12,6 @@ export const getDogs = () => async dispatch => {
     } catch (error) {
         return dispatch({
             type: GET_DOGS,
-            payload: error
-        })
-    }
-}
-
-export const getDog = (id) => async dispatch => {
-    try {
-        const { data } = await axios.get(`http://localhost:3001/dogs/${id}`);
-        return dispatch({
-            type: GET_DOG,
-            payload: data
-        })
-    } catch (error) {
-        return dispatch({
-            type: GET_DOG,
             payload: error
         })
     }

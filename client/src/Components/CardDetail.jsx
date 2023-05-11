@@ -1,21 +1,21 @@
 import React, { useState, useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { getDog } from '../redux/actions/actions'
+import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
+import axios from 'axios';
+import './Styles/CardDetail.css'
 
 export default function CardDetail() {
 
   const { id } = useParams();
 
-  const dispatch = useDispatch();
-
-  const { allDogs, detailDog } = useSelector(state => state); 
+  const { allDogs } = useSelector(state => state); 
 
   const [dog, setDog] = useState({});
 
   useEffect(() => {
-    dispatch(getDog(id));
-    setDog(detailDog);
+    axios.get(`http://localhost:3001/dogs/${id}`).then((response)=>
+      setDog(response.data)
+    ).catch((error) => console.log(error));
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
 
@@ -25,22 +25,24 @@ export default function CardDetail() {
   }
 
   return (
-    <div>
+    <div className='detail-container'>
       {
         dog &&
-        <div>
-          <div>
-            <p>{dog?.id}</p>
-          </div>
-          <div>
+        <div className='detail-dog-container'>
+          <div className='detail-text-container'>
+            <p className='detail-dog-id'>{dog?.id}</p>
             <h1>Breed: { dog?.name }</h1>
-            <h3>Height: { dog?.height?.metric || dog?.height }</h3>
-            <h3>Weight: { dog?.weight?.metric || dog?.weight }</h3>
-            <h3>Life span: { dog?.life_span }</h3>
-            <h2>Temperaments: <br/> { dog?.temperament } </h2>
+            <h3>Height: </h3>
+            <p>{ dog?.height?.metric || dog?.height } cm</p>
+            <h3>Weight: </h3>
+            <p>{ dog?.weight?.metric || dog?.weight } kg</p>
+            <h3>Life span: </h3>
+            <p>{ dog?.life_span }</p>
+            <h2>Temperaments: </h2>
+            <p> { dog?.temperament } </p>
           </div>
           <div>
-            <img src={obtainDogImage(dog?.reference_image_id)} alt={dog?.name}/>
+            <img className='detail-img' src={obtainDogImage(dog?.reference_image_id)} alt={dog?.name}/>
           </div>
         </div> 
       }
