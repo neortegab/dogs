@@ -22,7 +22,7 @@ export default function Home() {
   useEffect(() => {
     dispatch(getDogs());
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [pageNumberDogs, pageNumberTemperaments]);
 
 
   return (

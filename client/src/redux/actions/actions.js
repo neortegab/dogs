@@ -1,4 +1,14 @@
-import { GET_DOGS, ADD_DOG, REMOVE_DOG, FILTER_DOGS, CLEAR_FILTER, ORDER_DOGS_NAME, ORDER_DOGS_WEIGHT } from './types'
+import { GET_DOGS, 
+    ADD_DOG, 
+    REMOVE_DOG, 
+    FILTER_DOGS, 
+    CLEAR_FILTER, 
+    ORDER_DOGS_NAME, 
+    ORDER_DOGS_WEIGHT,
+    GET_TEMPERAMENTS,
+    ADD_TEMPERAMENT,
+    REMOVE_TEMPERAMENT,
+    ORDER_TEMPERAMENTS } from './types'
 
 import axios from 'axios';
 
@@ -70,6 +80,49 @@ export const orderDogsName = (order) => dispatch => {
 export const orderDogsWeight = (order) => dispatch => {
     return dispatch({
         type: ORDER_DOGS_WEIGHT,
+        payload: order
+    })
+}
+
+export const getTemperaments = () => async dispatch => {
+    try {
+        const {data} = await axios.get('http://localhost:3001/temperaments')
+        return dispatch({
+            type: GET_TEMPERAMENTS,
+            payload: data
+        })   
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export const addTemperament = (temperament) => async dispatch => {
+    try {
+        const {data} = await axios.post('http://localhost:3001/temperaments', temperament)
+        return dispatch({
+            type: ADD_TEMPERAMENT,
+            payload: data
+        })   
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export const removeTemperament = (id) => async dispatch => {
+    try {
+        await axios.delete(`http://localhost:3001/temperaments/${id}`)
+        return dispatch({
+            type: REMOVE_TEMPERAMENT,
+            payload: id
+        })   
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export const orderTemperaments = (order) => dispatch => {
+    return dispatch({
+        type: ORDER_TEMPERAMENTS,
         payload: order
     })
 }

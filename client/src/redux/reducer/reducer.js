@@ -1,4 +1,15 @@
-import { GET_DOGS, ADD_DOG, REMOVE_DOG, FILTER_DOGS, CLEAR_FILTER, ORDER_DOGS_NAME, ORDER_DOGS_WEIGHT } from '../actions/types';
+import { GET_DOGS, 
+    ADD_DOG, 
+    REMOVE_DOG, 
+    FILTER_DOGS, 
+    CLEAR_FILTER, 
+    ORDER_DOGS_NAME, 
+    ORDER_DOGS_WEIGHT,
+    GET_TEMPERAMENTS,
+    ADD_TEMPERAMENT,
+    REMOVE_TEMPERAMENT,
+    ORDER_TEMPERAMENTS
+ } from '../actions/types';
 
 const ASCENDANT = 'ascendant';
 
@@ -19,6 +30,18 @@ const compareDogsStringsAscendant = (a, b, value) => {
 const compareDogsStringsDescendant = (a, b, value) => {
     if (a[value].at(0) > b[value].at(0)) return -1;
     if (a[value].at(0) < b[value].at(0)) return 1;
+    return 0;
+}
+
+const compareTemperamentsAscendent = (a, b) => {
+    if (a.name.at(0) > b.name.at(0)) return 1;
+    if (a.name.at(0) < b.name.at(0)) return -1;
+    return 0;
+}
+
+const compareTemperamentsDescendent = (a, b) => {
+    if (a.name.at(0) > b.name.at(0)) return -1;
+    if (a.name.at(0) < b.name.at(0)) return 1;
     return 0;
 }
 
@@ -46,6 +69,17 @@ export default function reducer(state = initialState, action) {
                 return { ...state, filteredDogs: [...state.filteredDogs].sort((a,b) => compareDogsStringsAscendant(a, b, 'weight')) };
             else
                 return { ...state, filteredDogs: [...state.filteredDogs].sort((a,b) => compareDogsStringsDescendant(a, b, 'weight')) }
+        case GET_TEMPERAMENTS:
+            return { ...state, temperaments: payload };
+        case ADD_TEMPERAMENT:
+            return { ...state, temperaments: [...state.temperaments, payload] };
+        case REMOVE_TEMPERAMENT:
+            return { ...state, temperaments: state.temperaments.filter(temperament => temperament.id !== payload) };
+        case ORDER_TEMPERAMENTS:
+            if(payload === ASCENDANT)
+                return { ...state, temperaments: [...state.temperaments].sort((a,b) => compareTemperamentsAscendent(a,b)) };
+            else
+                return { ...state, temperaments: [...state.temperaments].sort((a,b) => compareTemperamentsDescendent(a,b)) }
         default:
             return state;
     }
