@@ -15,6 +15,7 @@ export default function DogCard(props) {
           <h3 className='dog-text-temperament-title '>Temperaments:</h3>
           <p className='dog-text-content'>{dog?.temperament}</p>
         </div> 
+        <h2 className='dog-text-title'>Weight: {dog?.weight?.metric || dog?.weight } kg</h2>
       </div>
     </Link>   
   )
