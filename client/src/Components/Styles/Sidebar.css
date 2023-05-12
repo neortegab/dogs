@@ -34,3 +34,15 @@
     width: calc(100% - 10px);
 }
 
+.sidebar-filter-container{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    align-self: center;
+}
+
+.sidebar-filtering-buttons{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}

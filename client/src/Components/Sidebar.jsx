@@ -37,8 +37,10 @@ export default function Sidebar() {
           <ActionButton action='Reset' onClick={handleReset}/>
         </div>
         <h2 className='sidebar-subtitle'>Filters</h2>
-        <div>
-          {filtersSelected && filtersSelected.map((breed)=> <FilterButton breed={breed}/>)}
+        <div className='sidebar-filter-container'>
+          <div className='sidebar-filtering-buttons'>
+            {filtersSelected && filtersSelected.map((breed)=> <FilterButton breed={breed}/>)}
+          </div>
           <select onChange={handleSelectedFilter}>
             { allTemperaments && allTemperaments.map(
               (temperament, index) => 
@@ -46,6 +48,8 @@ export default function Sidebar() {
               )
             }
           </select>
+        </div>
+        <div className='sidebar-reset-button'>
           <ActionButton action='Reset' onClick={handleReset}/>
         </div>
         <h2 className='sidebar-subtitle'>List actions</h2>
