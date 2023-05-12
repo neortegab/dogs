@@ -1,0 +1,37 @@
+.filter-button{
+    display: flex;
+    flex-direction: row;
+    background-color: #F3DEBA;
+    border-radius: 20px;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+    border: 1px solid #675D50;
+    width: calc(100% - 20px);
+    margin: 1%;
+}
+
+.filter-button h3{
+    font-size: small;
+}
+
+.filter-button button{
+    border: none;
+    background-color: #F3DEBA;
+}
+
+.filter-button:hover{
+    background-color: #675D50;
+    border: 1px solid #F3DEBA;
+    cursor: pointer;
+}
+
+.filter-button:hover button{
+    cursor: pointer;
+    background-color: #675D50;
+}
+
+.filter-button:hover h3{
+    color: #F3DEBA;
+    cursor: pointer;
+}
