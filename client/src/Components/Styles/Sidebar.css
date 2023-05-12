@@ -24,6 +24,7 @@
     color: #675D50;
     margin-left: 15px;
     margin-bottom: 2px;
+    align-self: baseline;
 }
 
 .sidebar-option-text{
@@ -37,12 +38,15 @@
     margin: 5px 0;
 }
 
-.sidebar-buttons-list{
+.sidebar-listactions-container{
     display: flex;
     flex-direction: column;
-    flex-wrap: nowrap;
-    align-items: center;
-    width: calc(100% - 10px);
+    width: 100%;
+}
+
+.sidebar-buttons-list{
+    align-self: center;
+    width: calc(40% - 10px);
 }
 
 .sidebar-filter-container{

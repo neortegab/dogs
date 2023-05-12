@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { clearFilter, filterDogsByTemperaments } from '../redux/actions/actions'
 import SidebarOption from './AuxComponents/SidebarOption'
@@ -62,10 +62,16 @@ export default function Sidebar() {
         <div className='sidebar-reset-button'>
           <ActionButton action='Reset' onClick={handleReset}/>
         </div>
-        <h2 className='sidebar-subtitle'>List actions</h2>
-        <div className='sidebar-buttons-list'>
-            <ActionButton action='Add'/>
-        </div>
+        { pathname === '/home' && 
+          <div className='sidebar-listactions-container'>
+            <h2 className='sidebar-subtitle'>List actions</h2>
+              <div className='sidebar-buttons-list'>
+                <Link to='/createDog'>
+                  <ActionButton action='Add'/>
+                </Link>
+              </div>
+          </div>
+        }
     </div>
   )
 }

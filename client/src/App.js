@@ -7,6 +7,7 @@ import Landing from './Components/Landing';
 import Home from './Components/Home';
 import CardDetail from './Components/CardDetail';
 import Navbar  from './Components/Navbar';
+import CreateDog from './Components/Form/CreateDog';
 
 function App() {
 
@@ -35,6 +36,9 @@ function App() {
         </Route>
         <Route path='/temperaments'>
           <Home />
+        </Route>
+        <Route path='/createDog'>
+          <CreateDog />
         </Route>
       </Switch>
     </div>
