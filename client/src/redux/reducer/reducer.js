@@ -17,6 +17,7 @@ const ASCENDANT = 'ascendant';
 const initialState = {
     allDogs: [],
     filteredDogs: [],
+    allTemperaments: [],
     temperaments: [],
     pageNumberDogs: 1,
     pageNumberTemperaments: 1
@@ -85,7 +86,7 @@ export default function reducer(state = initialState, action) {
         case FILTER_DOGS:
             return { ...state, filteredDogs: state.allDogs.filter(dog => dog.name.toLowerCase().includes(payload.toLowerCase())) };
         case CLEAR_FILTER:
-            return { ...state, filteredDogs: [...state.allDogs] };
+            return { ...state, filteredDogs: [...state.allDogs], temperaments: [...state.allTemperaments] };
         case ORDER_DOGS_NAME:
             if(payload === ASCENDANT)
                 return { ...state, filteredDogs: [...state.filteredDogs].sort((a,b) => compareDogsStringsAscendant(a,b, 'name')) };
@@ -97,7 +98,7 @@ export default function reducer(state = initialState, action) {
             else
                 return { ...state, filteredDogs: [...state.filteredDogs].sort((a,b) => compareDogsStringsDescendant(a, b, 'weight')) }
         case GET_TEMPERAMENTS:
-            return { ...state, temperaments: payload };
+            return { ...state, allTemperaments: payload, temperaments: payload };
         case ADD_TEMPERAMENT:
             return { ...state, temperaments: [...state.temperaments, payload] };
         case REMOVE_TEMPERAMENT:
