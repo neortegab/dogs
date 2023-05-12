@@ -23,14 +23,38 @@ const initialState = {
 };
 
 const compareDogsStringsAscendant = (a, b, value) => {
-    if (a[value].at(0) > b[value].at(0)) return 1;
-    if (a[value].at(0) < b[value].at(0)) return -1;
+    let stringA = '';
+    let stringB = '';
+    if(value === 'weight'){
+        stringA = a[value]?.metric.split('-')[0].trim() || a[value].split('-')[0].trim();
+        stringB = b[value]?.metric.split('-')[0].trim() || b[value].split('-')[0].trim();
+        stringA = parseInt(stringA);
+        stringB = parseInt(stringB);
+    }
+    if(value === 'name'){
+        stringA = a[value].at(0);
+        stringB = b[value].at(0);
+    }
+    if (stringA > stringB) return 1;
+    if (stringA < stringB) return -1;
     return 0;
 }
 
 const compareDogsStringsDescendant = (a, b, value) => {
-    if (a[value].at(0) > b[value].at(0)) return -1;
-    if (a[value].at(0) < b[value].at(0)) return 1;
+    let stringA = '';
+    let stringB = '';
+    if(value === 'weight'){
+        stringA = a[value]?.metric.split('-')[0].trim() || a[value].split('-')[0].trim();
+        stringB = b[value]?.metric.split('-')[0].trim() || b[value].split('-')[0].trim();
+        stringA = parseInt(stringA);
+        stringB = parseInt(stringB);
+    }
+    if(value === 'name'){
+        stringA = a[value].at(0);
+        stringB = b[value].at(0);
+    }
+    if (stringA > stringB) return -1;
+    if (stringA < stringB) return 1;
     return 0;
 }
 
@@ -66,7 +90,7 @@ export default function reducer(state = initialState, action) {
             if(payload === ASCENDANT)
                 return { ...state, filteredDogs: [...state.filteredDogs].sort((a,b) => compareDogsStringsAscendant(a,b, 'name')) };
             else
-                return { ...state, filtereddDogs: [...state.filteredDogs].sort((a,b) => compareDogsStringsDescendant(a,b, 'name')) }  
+                return { ...state, filteredDogs: [...state.filteredDogs].sort((a,b) => compareDogsStringsDescendant(a,b, 'name')) }  
         case ORDER_DOGS_WEIGHT:
             if(payload === ASCENDANT)
                 return { ...state, filteredDogs: [...state.filteredDogs].sort((a,b) => compareDogsStringsAscendant(a, b, 'weight')) };
