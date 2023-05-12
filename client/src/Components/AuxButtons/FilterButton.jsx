@@ -3,14 +3,18 @@ import '../Styles/FilterButton.css'
 
 export default function FilterButton(props) {
 
-    const { breed } = props;
+    const { breed, onClose } = props;
+
+    const handleOnClose = () => {
+        onClose(breed);
+    }
 
   return (
     <div className='filter-button'>
         <h3>
             {breed}
         </h3>
-        <button>X</button>
+        <button onClick={handleOnClose}>X</button>
     </div>
   )
 }

@@ -23,6 +23,10 @@ export default function Sidebar() {
     setFiltersSelected([...filtersSelected, e.target.value])
   }
 
+  const handleOnClose = (breed) => {
+    setFiltersSelected([...filtersSelected].filter((breedSelected) => breedSelected !== breed))
+  }
+
   const handleReset = () => {
     dispatch(clearFilter());
   } 
@@ -39,7 +43,7 @@ export default function Sidebar() {
         <h2 className='sidebar-subtitle'>Filters</h2>
         <div className='sidebar-filter-container'>
           <div className='sidebar-filtering-buttons'>
-            {filtersSelected && filtersSelected.map((breed)=> <FilterButton breed={breed}/>)}
+            {filtersSelected && filtersSelected.map((breed, index)=> <FilterButton key={index} breed={breed} onClose={handleOnClose}/>)}
           </div>
           <select onChange={handleSelectedFilter}>
             { allTemperaments && allTemperaments.map(
