@@ -9,7 +9,8 @@ import { GET_DOGS,
     GET_TEMPERAMENTS,
     ADD_TEMPERAMENT,
     REMOVE_TEMPERAMENT,
-    ORDER_TEMPERAMENTS
+    ORDER_TEMPERAMENTS,
+    FILTER_DOGS_BY_TEMPERAMENTS
  } from '../actions/types';
 
 const ASCENDANT = 'ascendant';
@@ -71,6 +72,19 @@ const compareTemperamentsDescendent = (a, b) => {
     return 0;
 }
 
+const filterDogsByTemperament = (dogs, temperaments) => {
+    let filteredDogs = [];
+    dogs.forEach(dog => {
+        let dogTemperaments = dog?.temperament?.split(',');
+        dogTemperaments = dogTemperaments?.map(dogTemp => dogTemp.trim());
+        temperaments.forEach(temp => {
+            if(dogTemperaments?.includes(temp) && !filteredDogs.includes(dog))
+                filteredDogs.push(dog);
+        });
+    });
+    return filteredDogs;
+}
+
 export default function reducer(state = initialState, action) {
     const { type, payload } = action;
 
@@ -85,6 +99,8 @@ export default function reducer(state = initialState, action) {
             return { ...state, allDogs: state.allDogs.filter(dog => dog.id !== payload) };
         case FILTER_DOGS:
             return { ...state, filteredDogs: state.allDogs.filter(dog => dog.name.toLowerCase().includes(payload.toLowerCase())) };
+        case FILTER_DOGS_BY_TEMPERAMENTS:
+            return { ...state, filteredDogs: filterDogsByTemperament(state.allDogs, payload) };
         case CLEAR_FILTER:
             return { ...state, filteredDogs: [...state.allDogs], temperaments: [...state.allTemperaments] };
         case ORDER_DOGS_NAME:

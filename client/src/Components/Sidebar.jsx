@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { clearFilter } from '../redux/actions/actions'
+import { clearFilter, filterDogsByTemperaments } from '../redux/actions/actions'
 import SidebarOption from './AuxComponents/SidebarOption'
 import ActionButton from './AuxButtons/ActionButton'
 import FilterButton from './AuxButtons/FilterButton'
@@ -17,10 +17,14 @@ export default function Sidebar() {
 
   const dispatch = useDispatch();
 
-  useEffect(() => {}, [filtersSelected])
+  useEffect(() => {
+    if(filtersSelected.length > 0) dispatch(filterDogsByTemperaments(filtersSelected))
+    else dispatch(clearFilter());
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [filtersSelected])
 
   const handleSelectedFilter = (e) => {
-    setFiltersSelected([...filtersSelected, e.target.value])
+    setFiltersSelected([...filtersSelected, e.target.value]);
   }
 
   const handleOnClose = (breed) => {
@@ -29,6 +33,7 @@ export default function Sidebar() {
 
   const handleReset = () => {
     dispatch(clearFilter());
+    setFiltersSelected([]);
   } 
 
   return (
@@ -42,6 +47,7 @@ export default function Sidebar() {
         </div>
         <h2 className='sidebar-subtitle'>Filters</h2>
         <div className='sidebar-filter-container'>
+          <h4 className='sidebar-option-text'>Temperaments</h4>
           <div className='sidebar-filtering-buttons'>
             {filtersSelected && filtersSelected.map((breed, index)=> <FilterButton key={index} breed={breed} onClose={handleOnClose}/>)}
           </div>

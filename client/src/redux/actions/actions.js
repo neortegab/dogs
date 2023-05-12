@@ -2,7 +2,8 @@ import { GET_DOGS,
     GET_DOG_BY_NAME, 
     ADD_DOG, 
     REMOVE_DOG, 
-    FILTER_DOGS, 
+    FILTER_DOGS,
+    FILTER_DOGS_BY_TEMPERAMENTS, 
     CLEAR_FILTER, 
     ORDER_DOGS_NAME, 
     ORDER_DOGS_WEIGHT,
@@ -74,6 +75,13 @@ export const filterDogs = (text) => dispatch => {
     return dispatch({
         type: FILTER_DOGS,
         payload: text
+    })
+}
+
+export const filterDogsByTemperaments = (temperaments) => dispatch => {
+    return dispatch({
+        type: FILTER_DOGS_BY_TEMPERAMENTS,
+        payload: temperaments
     })
 }
 

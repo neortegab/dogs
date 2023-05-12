@@ -26,6 +26,17 @@
     margin-bottom: 2px;
 }
 
+.sidebar-option-text{
+    color: #675D50;
+    align-self: flex-start;
+}
+
+.sidebar-filter-container select{
+    border-radius: 10px;
+    padding: 3px;
+    margin: 5px 0;
+}
+
 .sidebar-buttons-list{
     display: flex;
     flex-direction: column;
