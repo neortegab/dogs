@@ -7,6 +7,15 @@
     margin-bottom: 5px;
 }
 
+.action-button:hover {
+    background-color: #675D50;
+    cursor: pointer;
+}
+
+.action-button:hover p{
+    color: #F3DEBA;
+}
+
 .action-name {
     color: #675D50;
     margin: 8px;
