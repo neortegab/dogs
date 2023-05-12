@@ -1,0 +1,16 @@
+.input-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.input-container > h3{
+    margin: 1% 4%;
+}
+
+.input-container > input{
+    border-radius: 20px;
+    border: 1px solid #675D50;
+    padding: 5px 2%;
+}
